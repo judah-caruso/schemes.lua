@@ -27,6 +27,7 @@ local math_min     = math.min
 local math_max     = math.max
 local math_abs     = math.abs
 local math_ceil    = math.ceil
+local math_floor   = math.floor
 local table_insert = table.insert
 local table_concat = table.concat
 local string_find  = string.find
@@ -202,6 +203,9 @@ function schemes.color_from_hex_str(str)
 
    local fixed = str:gsub("#", "0x")
    local color = tonumber(fixed)
+   if color == nil then
+      return nil, fmt("Invalid color '%s'", str)
+   end
 
    return Color(
       (color & 0xFF0000) >> 16,
@@ -243,7 +247,7 @@ function schemes.color_from_hsv_str(str)
       return nil, fmt("Invalid color '%s'", str)
    end
 
-   local fract = function(x)       return x - math.floor(x) end
+   local fract = function(x)       return x - math_floor(x) end
    local lerp  = function(a, b, t) return a + (b - a) * t   end
 
    local hue = clamp(tonumber(h), 0, 360) / 360

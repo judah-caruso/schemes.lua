@@ -16,7 +16,7 @@ end
 local file = file_handle:read("*a")
 handle:close()
 
-local scheme, err = schemes.read_scheme(test_scheme)
+local scheme, err = schemes.read_scheme(file)
 if err then
    -- ...
 end
