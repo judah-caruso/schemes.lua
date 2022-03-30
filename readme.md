@@ -1,6 +1,6 @@
 # Schemes.lua
 
-A small Lua53+ library for working with (Schemes)[https://github.com/judah-caruso/schemes].
+A small Lua53+ library for working with [Schemes](https://github.com/judah-caruso/schemes).
 
 
 ## Usage
